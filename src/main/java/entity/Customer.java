@@ -27,7 +27,7 @@ public class Customer {
 
             Rental each = (Rental) rentals.nextElement();
 
-            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each._movie._price.getCharge(each.getDaysrented(), each._movie)) + "\n";
+            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each._movie._price.getCharge(each.getDaysrented())) + "\n";
         }
 
         // add footer lines
@@ -41,7 +41,7 @@ public class Customer {
         Enumeration rentals = _rentals.elements();
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
-            result += each._movie.getFrequentRenterPoints(each.getDaysrented());
+            result += each._movie._price.getFrequentRenterPoints(each.getDaysrented());
         }
         return result;
     }
@@ -51,7 +51,7 @@ public class Customer {
         Enumeration rentals = _rentals.elements();
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
-            result += each._movie._price.getCharge(each.getDaysrented(), each._movie);
+            result += each._movie._price.getCharge(each.getDaysrented());
         }
         return result;
     }
