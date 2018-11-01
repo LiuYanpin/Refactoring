@@ -10,14 +10,14 @@ public class Movie {
 
     public Movie(String title, int priceCode) {
         this._title = title;
-        this._priceCode = priceCode;
+        setPriceCode(priceCode);
     }
 
     public String getTitle() {
         return _title;
     }
 
-    public int getPricecode() {
+    public int getPriceCode() {
         return _priceCode;
     }
 
@@ -27,7 +27,7 @@ public class Movie {
 
     double getCharge(int daysRented) {
         double result = 0;
-        switch (getPricecode()) {
+        switch (getPriceCode()) {
             case REGULAR:
                 result += 2;
                 if (daysRented > 2) {
@@ -50,7 +50,7 @@ public class Movie {
     }
 
     int getFrequentRenterPoints(int daysRented) {
-        if ((getPricecode() == NEW_RELEASE) && daysRented > 1) {
+        if ((getPriceCode() == NEW_RELEASE) && daysRented > 1) {
             return 2;
         }
         return 1;
